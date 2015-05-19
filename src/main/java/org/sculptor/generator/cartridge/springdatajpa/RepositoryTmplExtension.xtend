@@ -85,7 +85,8 @@ class RepositoryTmplExtension extends RepositoryTmpl {
 				«ELSE»
 					«it.formatJavaDoc»
 				«ENDIF»
-				public interface «name» extends org.springframework.data.jpa.repository.JpaRepository<«baseName», «getJavaType("IDTYPE")»>«IF custom»,
+				@Repository(forEntity = «baseName».class)
+				public interface «name» , «getJavaType("IDTYPE")»>«IF custom»,
 					«aggregateRoot.module.getRepositoryapiPackage».«name»Custom«ENDIF»«IF subscribe != null»,
 					«fw("event.EventSubscriber")»«ENDIF» {
 					

@@ -6,19 +6,19 @@
 		<artifactId>sculptor-cartridges</artifactId>
 		<version>3.1.0</version>
 	</parent>
-	<artifactId>sculptor-cartridge-springdatajpa</artifactId>
+	<artifactId>sculptor-cartridge-apachedeltaspike</artifactId>
 	<version>3.1.1-SNAPSHOT</version>
-	<name>Sculptor :: Cartridges :: Spring Data JPA</name>
+	<name>Sculptor :: Cartridges :: Apache Deltaspike Data</name>
 
 	<scm>
-		<url>https://github.com/sculptor/sculptor-cartridge-springdatajpa.git</url>
-		<connection>scm:git:https://github.com/sculptor/sculptor-cartridge-springdatajpa.git</connection>
-		<developerConnection>scm:git:https://github.com/sculptor/sculptor-cartridge-springdatajpa.git</developerConnection>
+		<url>https://github.com/magick93/sculptor-cartridge-apachedeltaspike.git</url>
+		<connection>https://github.com/magick93/sculptor-cartridge-apachedeltaspike.git</connection>
+		<developerConnection>https://github.com/magick93/sculptor-cartridge-apachedeltaspike.git</developerConnection>
 		<tag>HEAD</tag>
 	</scm>
 
 	<issueManagement>
-		<url>https://github.com/sculptor/sculptor-cartridge-springdatajpa/issues</url>
+		<url>https://github.com/magick93/sculptor-cartridge-apachedeltaspike.git</url>
 		<system>GitHub Issues</system>
 	</issueManagement>
 
