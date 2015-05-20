@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.sculptor.generator.cartridge.springdatajpa
+package org.sculptor.generator.cartridge.apachedeltaspike
 
 import org.sculptor.dsl.sculptordsl.DslRepository
 import org.sculptor.generator.chain.ChainOverride

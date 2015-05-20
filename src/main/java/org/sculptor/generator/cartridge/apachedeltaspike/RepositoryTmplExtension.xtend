@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.sculptor.generator.cartridge.springdatajpa
+package org.sculptor.generator.cartridge.apachedeltaspike
 
 import javax.inject.Inject
 import org.sculptor.generator.chain.ChainOverride
@@ -31,6 +31,8 @@ class RepositoryTmplExtension extends RepositoryTmpl {
 	@Inject extension HelperBase helperBase
 	@Inject extension Helper helper
 	@Inject extension Properties properties
+	
+	
 
 	override String repository(Repository it) {
 		if (!jpa) {
@@ -76,6 +78,9 @@ class RepositoryTmplExtension extends RepositoryTmpl {
 				«javaHeader»
 				package «aggregateRoot.module.getRepositoryapiPackage»;
 				
+				import org.apache.deltaspike.data.api.EntityRepository;
+				import org.apache.deltaspike.data.api.Repository;
+				
 				/// Sculptor code formatter imports ///
 				
 				«IF it.formatJavaDoc == ""»
@@ -85,8 +90,8 @@ class RepositoryTmplExtension extends RepositoryTmpl {
 				«ELSE»
 					«it.formatJavaDoc»
 				«ENDIF»
-				@Repository(forEntity = «baseName».class)
-				public interface «name» , «getJavaType("IDTYPE")»>«IF custom»,
+				@Repository
+				public interface «name» extends EntityRepository<«baseName»,«getJavaType("IDTYPE")»>«IF custom»,
 					«aggregateRoot.module.getRepositoryapiPackage».«name»Custom«ENDIF»«IF subscribe != null»,
 					«fw("event.EventSubscriber")»«ENDIF» {
 					
@@ -107,6 +112,9 @@ class RepositoryTmplExtension extends RepositoryTmpl {
 				«javaHeader»
 				package «aggregateRoot.module.getRepositoryapiPackage»;
 				
+				import org.apache.deltaspike.data.api.EntityRepository;
+				import org.apache.deltaspike.data.api.Repository;
+				
 				/// Sculptor code formatter imports ///
 				
 				«IF it.formatJavaDoc == ""»
@@ -116,7 +124,8 @@ class RepositoryTmplExtension extends RepositoryTmpl {
 				«ELSE»
 					«it.formatJavaDoc»
 				«ENDIF»
-				public interface «className» {
+				@Repository
+				public interface «className» extends EntityRepository<«baseName»,«getJavaType("IDTYPE")»> {
 				
 					«it.operations.filter[isPublicVisibility && hasHint("gap")].map[interfaceRepositoryMethod(it)].join»
 				}

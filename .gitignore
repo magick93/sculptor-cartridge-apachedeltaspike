@@ -4,3 +4,5 @@ xtend-gen/
 .classpath
 .project
 .settings/
+/target/
+/target/
